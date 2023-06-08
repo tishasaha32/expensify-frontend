@@ -1,0 +1,46 @@
+.itemsContainer{
+    display: grid;
+    width: 100vw;
+    justify-content: flex-end;
+    grid-template-columns: 1fr;
+}
+.transaction{
+    display: flex;
+}
+.items{
+    width: 65vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
+    border-bottom: 1px solid #80828d;
+    margin-right: 20px;
+
+}
+.category{
+    font-size: 14px;
+    padding-bottom: 8px;
+    color: #80828d;
+}
+.emoji{
+    font-size: 28px;
+    width: 20vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.date{
+    font-size: 14px;
+    color: #80828d;
+}
+.expense{
+    display: flex;
+    justify-content: flex-end;
+}
+.deleteButton{
+    margin-top: 10px;
+    height: 24px;
+    width: 24px;
+}

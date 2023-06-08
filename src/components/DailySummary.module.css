@@ -1,0 +1,17 @@
+.dailySummaryContainer{
+    width: 100vw;
+    display: flex;
+    justify-content: flex-end;
+}
+.currentDay{
+    width: 70vw;
+    display: flex;
+    justify-content: space-between;
+    margin: 32px 40px 10px 52px;
+    color: #80828d;
+    font-size: 18px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid  #80828d;;
+}
+
+

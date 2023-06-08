@@ -1,0 +1,96 @@
+.selectCategoryField{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-top: 40px;
+}
+.selectCategoryField select{
+    padding: 10px 10px;
+    margin: 10px;
+}
+.selectCategoryField label{
+    margin: 0px 0px 10px 12px ;
+}
+.submitButton{
+    padding: 4px;
+    margin: 0px 120px;
+}
+.spenditure{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 48px 0px;      
+}
+.titleText{
+    color: #80828d;
+    font-size: 18px;
+    font-weight: 500;
+    margin: 0;
+}
+.amountSpent{
+    display: flex;
+    justify-content: start;
+}
+.dollar{
+    font-size: 32px;
+    padding-top: 8px;
+    color: #80828d;
+}
+.amount{
+    font-size: 56px;
+    font-weight:bolder;
+}
+.amountAfterDecimal{
+    font-size: 32px;
+    padding-top: 8px;
+    font-weight: bold;
+}
+
+.noDataFound{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.noDataFound img{
+    height: 45vh;
+    width: 85vw;
+}
+
+.transaction{
+    display: flex;
+    position: relative;
+}
+.items{
+    width: 73vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-weight: bold;
+    font-size: 16px;
+    border-bottom: 1px solid #80828d;
+    margin-right: 20px;
+
+}   
+.category{
+    font-size: 14px;
+    padding-bottom: 8px;
+    color: #80828d;
+}
+.emoji{
+    font-size: 28px;
+    width: 27vw;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.date{
+    font-size: 14px;
+    color: #80828d;
+}
+.expense{
+    display: flex;
+    justify-content: flex-end;
+}
