@@ -13,7 +13,7 @@ const Modal = ({isOpen, children}) => {
     </div>
   );
 };
-
+console.log("hi")
 function AddTransaction({transactions,setTransactions}) {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
