@@ -68,7 +68,6 @@ function AddTransaction({transactions,setTransactions}) {
     setTransaction({emoji:'',title:'', expense:null,category:'',date:null});
     setIsModalOpen(false);
   }
-
   return (
     <div className={styles.modalContainer}>
 
@@ -109,12 +108,11 @@ function AddTransaction({transactions,setTransactions}) {
           />
           
           {/* Select field */}
-          <label for="expense">Choose the type of expense: </label> 
           <select 
             onChange={(e)=>setTransaction({...transaction, category: e.target.value})} 
             required
           > 
-              <option value="" disabled selected hidden>Selete Type</option>
+              <option value="" disabled selected hidden>Expense Type</option>
               <option value="Transportation">Transportation</option> 
               <option value="Fooding">Fooding</option> 
               <option value="Pets">Pets</option> 
@@ -128,8 +126,8 @@ function AddTransaction({transactions,setTransactions}) {
           
           {/* Buttons */}
           <div className={styles.buttonsContainer}>
-            <button type="submit" value="submit">Add</button>
-            <button onClick={handleCloseButton}>Close</button>
+            <button className={styles.addModal}type="submit" value="submit">Add</button>
+            <button className={styles.closeModal}onClick={handleCloseButton}>Close</button>
           </div>
           
         </form>

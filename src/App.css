@@ -5,6 +5,10 @@
   padding: 0;
   box-sizing: border-box;
 }
+.App{
+  max-height: 100vh;
+  overflow: hidden;
+}
 .logo{
   width: 50%;
   display: block;

@@ -16,7 +16,7 @@
     color: white;
     border-radius: 50%;
     font-size: 32px;
-    margin: 48px 12px;
+    margin: 8px 12px;
 }
 .modalContent{
     width:100vw;
@@ -27,6 +27,8 @@
     background-color: rgba(1, 0, 0, 0.603);
 }
 .form{
+    width: 80vw;
+    height: max-content;
     display: flex;
     flex-direction: column;
     z-index: 1;
@@ -35,14 +37,40 @@
     color: white;
     background-color:rgba(0, 0, 0, 0.899);
     border-radius: 8px;
-    padding: 12px;
-    top: 30%;
-    left: 16%;
+    /* padding: 12px; */
+    padding-top: 20px;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
 }
 .form *{
-    margin: 4px;
+    margin: 8px;
     padding: 8px;
 }
+form > input, select {
+    width: 90%;
+}
+
+
 .buttonsContainer{
     display: flex;
+    width: 80vw;
+    justify-content: center;
+}
+
+.addModal{
+    width: 40vw;
+    background-color: #66bb6a;
+    border: none;
+    color: white;
+    font-size: 16px;
+
+}
+
+.closeModal{
+    width: 40vw;
+    background-color: #f44336;
+    color: white;
+    border:none;
+    font-size: 16px;
 }

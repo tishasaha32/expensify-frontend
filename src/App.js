@@ -13,7 +13,15 @@ import { useState } from 'react';
 function App() {
   const [weeklyExpense, setWeeklyExpense] = useState(0);
   const [dailyExpense, setDailyExpense] = useState(0);
-  const [transactions,setTransactions] =  useState([]);
+  const [transactions,setTransactions] =  useState([
+    {emoji:"📋",title:"Test 5",expense:"23",category:"Insurance",date:"2023-06-16",id:5},
+    {emoji:"🏠",title:"Test 7",expense:"33",category:"Housing",date:"2023-06-16",id:7},
+    {emoji:"🚗",title:"Test 1",expense:"22",category:"Transportation",date:"2023-06-10",id:1},
+    {emoji:"🐶",title:"Test 3",expense:"43",category:"Pets",date:"2023-06-10",id:3},
+    {emoji:"🏥",title:"Test 4",expense:"34",category:"Health Care",date:"2023-06-08",id:4},
+    {emoji:"🎬",title:"Test 6",expense:"34",category:"Entertainment",date:"2023-06-02",id:6},
+    {emoji:"💰",title:"Test 8",expense:"56",category:"Others",date:"2023-06-02",id:8},
+    {emoji:"🍔",title:"Test 2",expense:"32",category:"Fooding",date:"2023-06-01",id:2}]);
   const [activeTab,setActiveTab] = useState('home');
   const [reportTab,setReportTab] = useState('monthly');
   const [chartTab,setChartTab] = useState('monthlyChart'); 

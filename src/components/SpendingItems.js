@@ -19,6 +19,7 @@ const SpendingItems=({transactions, setTransactions})=> {
   return (
     <div className={styles.itemsContainer}>
         {/*  Map through the transactions and render each transaction item */}
+        <div>
         {transactions?.sort((a, b) => new Date(b.date) - new Date(a.date)).map(transaction => (
           <div className={styles.transaction}>
             <p className={styles.emoji}>{transaction.emoji}</p>
@@ -35,6 +36,7 @@ const SpendingItems=({transactions, setTransactions})=> {
             <img src={bin} className={styles.deleteButton} onClick={()=>handleDeleteButton(transaction.id)}/>
           </div>
         ))} 
+        </div>
     </div>
   )};
   
