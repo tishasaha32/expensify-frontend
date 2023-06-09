@@ -11,10 +11,6 @@
 .selectCategoryField label{
     margin: 0px 0px 10px 12px ;
 }
-.submitButton{
-    padding: 4px;
-    margin: 0px 120px;
-}
 .spenditure{
     display: flex;
     flex-direction: column;

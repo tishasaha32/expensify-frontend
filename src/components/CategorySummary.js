@@ -26,7 +26,6 @@ function CategorySummary({transactions}) {
 
   return (
     <div>
-
         {/* Select field */}
         <div className={styles.selectCategoryField}>
         <label for="expense">Choose the Category of Expense: </label> 

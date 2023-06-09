@@ -5,11 +5,18 @@
   padding: 0;
   box-sizing: border-box;
 }
+.logo{
+  width: 50%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 20px 0px;
+}
 .menus{
   width: 100vw;
   display: flex;
   justify-content: space-evenly;
-  padding-top: 4rem;
+  padding-top: 2rem;
   left: 0;
 }
 .menus button{
@@ -58,5 +65,41 @@
 }
 
 .reportTabs button.report:hover::after {
+  transform: scaleX(1);
+}
+.chartTabs{
+  display: flex;
+  justify-content: space-around;
+  margin-top: 40px;
+}
+.chartTabs button{
+  position: relative;
+  padding: 4px;
+  border: none;
+  background-color: white;
+  font-size: 15px;
+  cursor: pointer;
+}
+.chartTabs button.charts{
+  font-weight: 600;
+}
+.chartTabs ::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 2px;
+  background-color: black;
+  transform: scaleX(0);
+  transition: transform 0.3s;
+}
+.chartTabs button.charts::after {
+  background-color: black;
+  transform: scaleX(1);
+  transition: transform 0.3s;
+}
+
+.chartTabs button.report:hover::after {
   transform: scaleX(1);
 }

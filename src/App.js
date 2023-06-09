@@ -6,6 +6,8 @@ import SpendingItems from './components/SpendingItems';
 import CategorySummary from './components/CategorySummary';
 import MonthlySummary from './components/MonthlySummary';
 import DateSummary from './components/DateSummary';
+import Chart from './components/Chart'
+import logo from './Assets/LOGO6.png'
 import { useState } from 'react';
 
 function App() {
@@ -13,7 +15,8 @@ function App() {
   const [dailyExpense, setDailyExpense] = useState(0);
   const [transactions,setTransactions] =  useState([]);
   const [activeTab,setActiveTab] = useState('home');
-  const [reportTab,setReportTab] = useState('timePeriod')
+  const [reportTab,setReportTab] = useState('monthly');
+  const [chartTab,setChartTab] = useState('monthlyChart'); 
 
   //Function to handle tab
   const handleTabClick = (tab) => {
@@ -24,9 +27,13 @@ function App() {
     setReportTab(tab);
   }
 
+  const handleChartTabClick = (tab) =>{
+    setChartTab(tab);
+  }
   return (
 
     <div className="App">
+      <img src={logo} className="logo"/>
       <div className='menus'>
         <button className={activeTab === 'home' ? 'active' : ''} onClick={() => handleTabClick('home')}>
           Home
@@ -34,7 +41,7 @@ function App() {
         <button className={activeTab === 'report' ? 'active' : ''} onClick={() => handleTabClick('report')}>
           Report
         </button>
-        <button className={activeTab === 'chart' ? 'active' : ''} onClick={() => handleTabClick('charts')}>
+        <button className={activeTab === 'charts' ? 'active' : ''} onClick={() => handleTabClick('charts')}>
           Charts
         </button>
       </div>
@@ -46,7 +53,9 @@ function App() {
           <AddTransaction transactions ={transactions} setTransactions={setTransactions}/>
         </>
       )}
+      
       {activeTab === 'report' && (
+        <>
         <div className='reportTabs'>
           <button className={reportTab === 'monthly' ? 'report' : ''} onClick={() => handleReportTabClick('monthly')}>
             Monthly
@@ -58,18 +67,27 @@ function App() {
             Date
           </button>
         </div>
+        <div>
+        {reportTab==='monthly' &&(
+          <MonthlySummary transactions={transactions}/>
+        )}
+        {reportTab==='category' &&(
+          <CategorySummary transactions={transactions}/>
+        )}
+        {reportTab==='date' &&(
+          <DateSummary transactions={transactions}/>
+        )}
+        </div>
+        </>
       )}
-      {reportTab==='monthly' &&(
-        <MonthlySummary transactions={transactions}/>
-      )}
-      {reportTab==='category' &&(
-        <CategorySummary transactions={transactions}/>
-      )}
-      {reportTab==='date' &&(
-        <DateSummary transactions={transactions}/>
-      )}
-    </div>
+      
 
+      {activeTab === 'charts' && (
+        <div className='chartTabs'>
+          <Chart transactions={transactions}/>
+        </div>
+      )}
+  </div>
   );
 }
 
