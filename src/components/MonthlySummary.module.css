@@ -6,10 +6,7 @@
 }
 .monthFieldContainer select{
     padding: 10px 10px;
-    margin: 10px;
-}
-.monthFieldContainer label{
-    margin: 0px 0px 10px 12px ;
+    margin: 0px 10px;
 }
 .spenditure{
     display: flex;

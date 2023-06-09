@@ -6,11 +6,9 @@
 }
 .selectCategoryField select{
     padding: 10px 10px;
-    margin: 10px;
+    margin: 0px 10px;
 }
-.selectCategoryField label{
-    margin: 0px 0px 10px 12px ;
-}
+
 .spenditure{
     display: flex;
     flex-direction: column;

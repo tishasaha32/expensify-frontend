@@ -28,7 +28,6 @@ function CategorySummary({transactions}) {
     <div>
         {/* Select field */}
         <div className={styles.selectCategoryField}>
-        <label for="expense">Choose the Category of Expense: </label> 
             <select value= {selectedCategory} onChange={handleSelectChange} required > 
                 <option value="" disabled selected hidden>Selete Type</option>
                 <option value="Transportation">Transportation</option> 

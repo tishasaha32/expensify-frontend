@@ -35,7 +35,6 @@ function MonthlySummary({transactions}) {
   return (
     <div>
       <div className={styles.monthFieldContainer}>
-        <label for="expense">Choose the Month: </label> 
           <select value={selectedMonth} onChange={(e)=>handleExpenseByMonth(e)} required> 
               <option value="" disabled selected hidden>Choose Month</option>
               <option value="1">January</option> 
