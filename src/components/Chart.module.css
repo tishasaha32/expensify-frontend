@@ -1,0 +1,18 @@
+.chartContainer{
+    width: 100vw;
+    height: 60vh;
+    padding: 20px;
+}
+
+
+@media only screen and (min-width: 600px){
+    .chartContainer{
+        height: 80vh;
+        padding: 40px;
+    }
+    .chart{
+        width: 50vw;
+        margin: auto;
+        padding: 10px;
+    }
+}

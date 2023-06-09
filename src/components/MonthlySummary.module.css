@@ -108,11 +108,11 @@
     }
     .itemsContainer{
         padding-bottom: 160px;
-        padding-right: 48px;
     }
     .transaction{
         width: 50%;
         margin: auto;
+        padding-right: 48px;
     }
     .spenditure{
         padding-bottom: 20px;

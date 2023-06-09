@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import {Bar} from 'react-chartjs-2'
 import { Chart as ChartJS } from "chart.js/auto";
+import styles from './Chart.module.css'
 
 function Chart({ transactions }) {
   const [transactionChart, setTransactionChart] = useState(null);
@@ -35,9 +36,9 @@ function Chart({ transactions }) {
   }, [transactions]);
 
   return (
-    <div style={{width:'100vw', height: '60vh', padding: '20px'}}>
+    <div className={styles.chartContainer}>
       {transactionChart && (
-        <Bar
+        <Bar className={styles.chart} 
           data={transactionChart}
           options={{
             responsive: true,

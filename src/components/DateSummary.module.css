@@ -84,3 +84,32 @@
     display: flex;
     justify-content: flex-end;
 }
+@media only screen and (min-width: 600px){
+    .dateContainer{
+        margin: auto;
+        width: 30vw;
+    }
+    .dateContainer input{
+        width: 30vw;
+        margin: auto;
+        margin-top: 40px;
+    }
+    .noDataFound{
+        margin: 0%;
+    }
+    .noDataFound img{
+        width: 20vw;
+        height: 20vw;
+    }
+    .itemsContainer{
+        padding-bottom: 160px;
+    }
+    .transaction{
+        width: 40%;
+        margin: auto;
+        padding-right: 48px;
+    }
+    .spenditure{
+        padding-bottom: 20px;
+    }
+}
