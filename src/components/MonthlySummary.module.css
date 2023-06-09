@@ -50,13 +50,20 @@
     height: 45vh;
     width: 85vw;
 }
-
+.itemsContainer{
+    display: grid;
+    width: 100vw;
+    justify-content: flex-end;
+    grid-template-columns: 1fr;
+    height: 45vh;
+    overflow-y: scroll!important;
+}
 .transaction{
     display: flex;
-    position: relative;
+    height: fit-content;
 }
 .items{
-    width: 73vw;
+    width: 65vw;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -86,4 +93,28 @@
 .expense{
     display: flex;
     justify-content: flex-end;
+}
+@media only screen and (min-width: 600px){
+    .monthFieldContainer select{
+        margin: auto;
+        width: 40vw;
+    }
+    .noDataFound{
+        margin: 0%;
+    }
+    .noDataFound img{
+        width: 20vw;
+        height: 20vw;
+    }
+    .itemsContainer{
+        padding-bottom: 160px;
+        padding-right: 48px;
+    }
+    .transaction{
+        width: 50%;
+        margin: auto;
+    }
+    .spenditure{
+        padding-bottom: 20px;
+    }
 }

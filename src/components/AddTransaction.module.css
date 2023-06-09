@@ -17,6 +17,7 @@
     border-radius: 50%;
     font-size: 32px;
     margin: 8px 12px;
+    cursor: pointer;
 }
 .modalContent{
     width:100vw;
@@ -64,6 +65,7 @@ form > input, select {
     border: none;
     color: white;
     font-size: 16px;
+    cursor: pointer;
 
 }
 
@@ -73,4 +75,19 @@ form > input, select {
     color: white;
     border:none;
     font-size: 16px;
+    cursor: pointer;
+}
+@media only screen and (min-width: 600px){
+    .addButton{
+        margin: 40px 180px;
+    }
+    .form{
+        width: 40vw;
+    }
+    .addModal{
+        width: 17vw;
+    }
+    .closeModal{
+        width: 17vw;
+    }
 }

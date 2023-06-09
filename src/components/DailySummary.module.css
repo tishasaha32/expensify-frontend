@@ -14,4 +14,12 @@
     border-bottom: 1px solid  #80828d;;
 }
 
-
+@media only screen and (min-width: 600px){
+    .dailySummaryContainer{
+        width: 50%;
+        margin: auto;
+    }
+    .currentDay{
+        margin: 32px 40px 10px 80px;
+    }
+}

@@ -76,7 +76,7 @@ function MonthlySummary({transactions}) {
 
         {/* Map through the filtered transactions (month wise) */}
         {isElementsVisible && filteredTransaction.length!==0 &&(
-        <>
+        <div className={styles.itemsContainer}>
             {filteredTransaction.map(transaction => (
             <div className={styles.transaction}>
                 <p className={styles.emoji}>{transaction.emoji}</p>
@@ -92,7 +92,7 @@ function MonthlySummary({transactions}) {
                 </div>
             </div>
             ))}
-        </>
+        </div>
         )}
     </div>
   )

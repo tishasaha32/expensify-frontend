@@ -4,7 +4,7 @@
     justify-content: flex-end;
     grid-template-columns: 1fr;
     height: 45vh;
-    overflow: scroll!important;
+    overflow-y: scroll!important;
 }
 .transaction{
     display: flex;
@@ -46,4 +46,14 @@
     margin-top: 10px;
     height: 24px;
     width: 24px;
+}
+
+@media only screen and (min-width: 600px){
+    .itemsContainer{
+        margin-bottom: 80px;
+    }
+    .transaction{
+        width: 50%;
+        margin: auto;
+    }
 }
