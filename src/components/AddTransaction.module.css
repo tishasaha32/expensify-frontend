@@ -26,7 +26,21 @@
     top: 0;
     left: 0;
     background-color: rgba(1, 0, 0, 0.603);
+    animation: popUp 0.5s ease-out forwards;
 }
+
+@keyframes popUp {
+    0% {
+        transform: scale(0);
+    }
+    80% {
+        transform: scale(1.2);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
 .form{
     width: 80vw;
     height: max-content;
