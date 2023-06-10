@@ -57,6 +57,7 @@
     grid-template-columns: 1fr;
     height: 45vh;
     overflow-y: scroll!important;
+    
 }
 .transaction{
     display: flex;
