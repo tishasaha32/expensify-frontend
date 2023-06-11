@@ -19,7 +19,7 @@ function ItemsList({transactions , setTransactions}) {
   return (
     <div>
         {/*  Map through the transactions and render each transaction item */}
-        <div>
+        <div className={styles.itemsContainer}>
         {transactions?.sort((a, b) => new Date(b.date) - new Date(a.date)).map(transaction => (
         <div className={styles.transaction}>
             <p className={styles.emoji}>{transaction.emoji}</p>

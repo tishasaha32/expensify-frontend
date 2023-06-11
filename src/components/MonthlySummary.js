@@ -52,7 +52,8 @@ function MonthlySummary({transactions}) {
               <option value="12">December</option>
           </select>
       </div>
-    
+
+      
       {/* Total Spent on the Month Selected */}
       {isElementsVisible && filteredTransaction.length!==0 &&(
         <>
