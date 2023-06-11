@@ -29,3 +29,8 @@
     padding-top: 8px;
     font-weight: bold;
 }
+@media only screen and (min-width: 600px){
+    .spenditure{
+        padding-bottom: 20px;
+    }
+}

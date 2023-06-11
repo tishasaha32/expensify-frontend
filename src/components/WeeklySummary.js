@@ -1,5 +1,5 @@
 import React,{useEffect} from 'react'
-import styles from "./WeeklySummary.module.css"
+import Summary from '../Common/Summary';
 
 function Balance({weeklyExpense, setWeeklyExpense, transactions}){
 
@@ -20,19 +20,12 @@ function Balance({weeklyExpense, setWeeklyExpense, transactions}){
 
         // Calculate weekly expense by summing up the filtered transactions
         const weeklyExpense = filteredTransactions.reduce((amount,filteredTransaction) =>  amount = amount + parseFloat(filteredTransaction.expense) , 0 )
-        setWeeklyExpense(weeklyExpense);
+        setWeeklyExpense(weeklyExpense);    
     })
 
     return(
         <div>
-            <div className={styles.spenditure}>
-                <p className={styles.titleText}>Spent this Week</p>
-                <div className={styles.amountSpent}>
-                    <span className={styles.dollar}>$</span>
-                    <span className={styles.amount}>{weeklyExpense}.</span>
-                    <span className={styles.amountAfterDecimal}>00</span>
-                </div>
-            </div>
+            <Summary summary={weeklyExpense} summaryOf={"week"}/>
         </div>
     );
 }

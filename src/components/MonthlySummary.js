@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import styles from './MonthlySummary.module.css';
-import noDataFound from '../Assets/noDataFound.png'
+import ItemsList from '../Common/ItemsList';
+import NoData from '../Common/NoData';
+import Summary from '../Common/Summary';
 
 function MonthlySummary({transactions}) {
   const [selectedMonth,setSelectedMonth] = useState('');
@@ -21,7 +23,6 @@ function MonthlySummary({transactions}) {
   //Function to handle Submit Button
   const handleExpenseByMonth=(e)=>{
     setSelectedMonth(e.target.value)
-    console.log( e.target.options[e.target.selectedIndex].textContent)
     setMonth(e.target.options[e.target.selectedIndex].textContent)
     setIsElementsVisible(true);
   }
@@ -55,44 +56,20 @@ function MonthlySummary({transactions}) {
       {/* Total Spent on the Month Selected */}
       {isElementsVisible && filteredTransaction.length!==0 &&(
         <>
-            <div className={styles.spenditure}>
-                <p className={styles.titleText}>Total Spent on {month}</p>
-                <div className={styles.amountSpent}>
-                    <span className={styles.dollar}>$</span>
-                    <span className={styles.amount}>{monthlyExpense}.</span>
-                    <span className={styles.amountAfterDecimal}>00</span>
-                </div>
-            </div>
+            <Summary summary={monthlyExpense} summaryOf={month}/>
         </>
         )}
 
         {/* Display "No data found" message when filteredTransaction is empty */}
         {isElementsVisible && filteredTransaction.length === 0 && (
-            <div className={styles.noDataFound}>
-                <img src={noDataFound} />
-                <p>No Transactions History found for {month}</p>
-            </div>
+            <>
+              <NoData selected={month}/>
+            </>
         )}
 
         {/* Map through the filtered transactions (month wise) */}
         {isElementsVisible && filteredTransaction.length!==0 &&(
-        <div className={styles.itemsContainer}>
-            {filteredTransaction.map(transaction => (
-            <div className={styles.transaction}>
-                <p className={styles.emoji}>{transaction.emoji}</p>
-                <div className={styles.items}>
-                <div>
-                    <p className={styles.title}>{transaction.title}</p>
-                    <p className={styles.category}>{transaction.category}</p>
-                </div>
-                <div>
-                    <p className={styles.expense}>${transaction.expense}.00</p>
-                    <p className={styles.date}>{transaction.date}</p>
-                </div>
-                </div>
-            </div>
-            ))}
-        </div>
+          <ItemsList transactions={filteredTransaction}/>
         )}
     </div>
   )

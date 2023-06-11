@@ -1,6 +1,8 @@
 import React, { useState , useEffect} from 'react'
 import styles from './CategorySummary.module.css'
-import noDataFound from '../Assets/noDataFound.png'
+import ItemsList from '../Common/ItemsList';
+import NoData from '../Common/NoData';
+import Summary from '../Common/Summary';
 
 function CategorySummary({transactions}) {
     const [isElementsVisible, setIsElementsVisible] = useState(false);
@@ -29,7 +31,7 @@ function CategorySummary({transactions}) {
         {/* Select field */}
         <div className={styles.selectCategoryField}>
             <select value= {selectedCategory} onChange={handleSelectChange} required > 
-                <option value="" disabled selected hidden>Selete Type</option>
+                <option value="" disabled selected hidden>Expense Type</option>
                 <option value="Transportation">Transportation</option> 
                 <option value="Fooding">Fooding</option> 
                 <option value= "Pets">Pets</option> 
@@ -43,45 +45,23 @@ function CategorySummary({transactions}) {
 
         {/* Total Spent on the Category Selected */}
         {isElementsVisible && filteredTransaction.length!==0 &&(
-        <>
-            <div className={styles.spenditure}>
-                <p className={styles.titleText}>Total Spent on {selectedCategory}</p>
-                <div className={styles.amountSpent}>
-                    <span className={styles.dollar}>$</span>
-                    <span className={styles.amount}>{totalExpenseCategoryWise}.</span>
-                    <span className={styles.amountAfterDecimal}>00</span>
-                </div>
-            </div>
-        </>
+            <>
+                <Summary summary={totalExpenseCategoryWise} summaryOf={selectedCategory} />
+            </>
         )}
 
         {/* Display "No data found" message when filteredTransaction is empty */}
         {isElementsVisible && filteredTransaction.length === 0 && (
-            <div className={styles.noDataFound}>
-                <img src={noDataFound} />
-                <p>No Transactions History found for {selectedCategory}</p>
-            </div>
+            <>
+                <NoData selected={selectedCategory}/>
+            </>
         )}
 
         {/* Map through the filtered transactions (category wise) */}
         {isElementsVisible && filteredTransaction.length!==0 && (
-        <>
-            {filteredTransaction.map(transaction => (
-            <div className={styles.transaction}>
-                <p className={styles.emoji}>{transaction.emoji}</p>
-                <div className={styles.items}>
-                <div>
-                    <p className={styles.title}>{transaction.title}</p>
-                    <p className={styles.category}>{transaction.category}</p>
-                </div>
-                <div>
-                    <p className={styles.expense}>${transaction.expense}.00</p>
-                    <p className={styles.date}>{transaction.date}</p>
-                </div>
-                </div>
-            </div>
-            ))}
-        </>
+            <>
+                <ItemsList transactions={filteredTransaction}/>
+            </>
         )}
     </div>
   )

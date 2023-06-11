@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 import styles from './DateSummary.module.css'
-import noDataFound from '../Assets/noDataFound.png'
+import NoData from '../Common/NoData';
+import ItemsList from '../Common/ItemsList';
+import Summary from '../Common/Summary';
 
 function DateSummary({transactions}) {
     const [selectedDate,setSelectedDate] = useState('');
@@ -49,43 +51,21 @@ function DateSummary({transactions}) {
         {/* Total Amount Spent on a particular date */}
         {isElementsVisible && filteredTransaction.length!==0 && (
         <>
-            <div className={styles.spenditure}>
-                <p className={styles.titleText}>Total Spent on {formatDate(selectedDate)}</p>
-                <div className={styles.amountSpent}>
-                    <span className={styles.dollar}>$</span>
-                    <span className={styles.amount}>{totalExpense}.</span>
-                    <span className={styles.amountAfterDecimal}>00</span>
-                </div>
-            </div>
+            <Summary summary={totalExpense} summaryOf={formatDate(selectedDate)}/>
         </>
         )}
 
         {/* Display "No data found" message when filteredTransaction is empty */}
         {isElementsVisible && filteredTransaction.length === 0 && (
-            <div className={styles.noDataFound}>
-                <img src={noDataFound} />
-                <p>No Transactions History found for {formatDate(selectedDate)}</p>
-            </div>
+            <>
+                <NoData selected ={formatDate(selectedDate)}/>
+            </>
         )}
 
          {/* Map through the filtered transactions (category wise) */}
          {isElementsVisible && filteredTransaction.length!==0 && (
         <>
-            {filteredTransaction.map(transaction => (
-            <div className={styles.transaction}>
-                <p className={styles.emoji}>{transaction.emoji}</p>
-                <div className={styles.items}>
-                <div>
-                    <p className={styles.title}>{transaction.title}</p>
-                    <p className={styles.category}>{transaction.category}</p>
-                </div>
-                <div>
-                    <p className={styles.expense}>${transaction.expense}.00</p>
-                    <p className={styles.date}>{transaction.date}</p>
-                </div>
-                </div>
-            </div>
-            ))}
+            <ItemsList transactions={filteredTransaction}/>
         </>
         )}
     </div> 
