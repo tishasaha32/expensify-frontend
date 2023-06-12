@@ -16,7 +16,7 @@ const Modal = ({isOpen, children}) => {
 function AddTransaction({transactions,setTransactions}) {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [transaction,setTransaction] = useState({emoji:'',title:'',expense: null,category:'',date: null});
+  const [transaction,setTransaction] = useState({emoji:'',title:'',expense: null,category:'',date: new Date().toISOString().split('T')[0],});
 
   // Function to open the transaction modal
   const showTransactionModal = () => {
@@ -89,7 +89,7 @@ function AddTransaction({transactions,setTransactions}) {
           />
 
           <input 
-            value={transaction.expense} 
+            defaultValue={transaction.expense} 
             type="number" 
             placeholder="Enter the expense"
             required
@@ -100,7 +100,6 @@ function AddTransaction({transactions,setTransactions}) {
           <input 
             value={transaction.date} 
             type='date' 
-            placeholder='dd-mm-yyyy' 
             required
             onChange={(e)=>setTransaction({...transaction, date :e.target.value})
             }

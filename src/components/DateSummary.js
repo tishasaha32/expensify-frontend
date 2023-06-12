@@ -8,7 +8,8 @@ function DateSummary({transactions}) {
     const [selectedDate,setSelectedDate] = useState('');
     const [isElementsVisible, setIsElementsVisible] = useState(false);
     const [totalExpense,setTotalExpense] = useState(0)
-    
+    const todayDate= new Date().toISOString().split('T')[0];
+
     //Funtion to format date
     const formatDate = (selectedDate) => {
         const dateObj = new Date(selectedDate);
@@ -41,7 +42,7 @@ function DateSummary({transactions}) {
         <div className={styles.dateContainer}>
             <input 
                 type='date'
-                value={selectedDate}
+                value={selectedDate || todayDate}
                 placeholder='dd-mm-yyyy' 
                 required
                 onChange={(e)=>handleExpenseByDate(e)}
