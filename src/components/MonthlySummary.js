@@ -14,7 +14,7 @@ function MonthlySummary({transactions}) {
   const filteredTransaction = transactions.filter(transaction=>{
     const numericValue = parseInt(selectedMonth)
     if (!isNaN(numericValue)) {
-      const date = new Date(transaction.date);
+      const date = new Date(transaction.attributes.date);
       const transactionMonth = date.getMonth() + 1;
       return numericValue === transactionMonth;
     }
@@ -30,7 +30,7 @@ function MonthlySummary({transactions}) {
   useEffect(() => { 
 
     // Calculate expense by summing up the filtered transactions of a particular month
-    const monthlyExpense = filteredTransaction.reduce((amount,filteredTransaction) =>  amount = amount + parseFloat(filteredTransaction.expense) , 0 )
+    const monthlyExpense = filteredTransaction.reduce((amount,filteredTransaction) =>  amount = amount + parseFloat(filteredTransaction.attributes.expense) , 0 )
     setMonthlyExpense(monthlyExpense);
   })
   return (

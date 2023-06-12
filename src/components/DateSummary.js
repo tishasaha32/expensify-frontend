@@ -18,7 +18,7 @@ function DateSummary({transactions}) {
 
     //function to filter transactions date wise
     const filteredTransaction = transactions.filter(transaction=>{
-        const date = new Date(transaction.date);
+        const date = new Date(transaction.attributes.date);
         const transactionDate = `${date.getDate()} - ${(date.getMonth() + 1)} - ${date.getFullYear()}`;
         return formatDate(selectedDate) === transactionDate;
     });
@@ -32,7 +32,7 @@ function DateSummary({transactions}) {
     useEffect(() => { 
 
         // Calculate expense by summing up the filtered transactions on a particular date
-        const totalExpense = filteredTransaction.reduce((amount,filteredTransaction) =>  amount = amount + parseFloat(filteredTransaction.expense) , 0 )
+        const totalExpense = filteredTransaction.reduce((amount,filteredTransaction) =>  amount = amount + parseFloat(filteredTransaction.attributes.expense) , 0 )
         setTotalExpense(totalExpense);
     })
 

@@ -17,12 +17,12 @@ function CategorySummary({transactions}) {
     }
 
     //Filter the Transactions of the category Selected
-    const filteredTransaction = transactions.filter(transaction => transaction.category===selectedCategory);
+    const filteredTransaction = transactions.filter(transaction => transaction.attributes.category===selectedCategory);
 
     useEffect(() => { 
 
         // Calculate Category Wise expense by summing up the filtered transactions
-        const totalExpenseCategoryWise = filteredTransaction.reduce((amount,filteredTransaction) =>  amount = amount + parseFloat(filteredTransaction.expense) , 0 )
+        const totalExpenseCategoryWise = filteredTransaction.reduce((amount,filteredTransaction) =>  amount = amount + parseFloat(filteredTransaction.attributes.expense) , 0 )
         setTotalExpenseCategoryWise(totalExpenseCategoryWise);
     })
 

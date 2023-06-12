@@ -8,7 +8,7 @@ function DailySummary({setDailyExpense,transactions, dailyExpense}){
   
   // Filter transactions for the current date
   const filteredTransactions = transactions.filter((transaction)=>{
-    const enteredDate = new Date(transaction.date)
+    const enteredDate = new Date(transaction.attributes.date)
     const enteredFullDate = `${enteredDate.getDate()} - ${(enteredDate.getMonth() + 1)} - ${enteredDate.getFullYear()}`;
     return(
       enteredFullDate === currentDate);
@@ -17,7 +17,7 @@ function DailySummary({setDailyExpense,transactions, dailyExpense}){
   useEffect(() => { 
 
     // Calculate daily expense by summing up the filtered transactions
-    const dailyExpense = filteredTransactions.reduce((amount,filteredTransaction) =>  amount = amount + parseFloat(filteredTransaction.expense) , 0 )
+    const dailyExpense = filteredTransactions.reduce((amount,filteredTransaction) =>  amount = amount + parseFloat(filteredTransaction.attributes.expense) , 0 )
     setDailyExpense(dailyExpense);
   })
 

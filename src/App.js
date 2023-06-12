@@ -8,22 +8,24 @@ import MonthlySummary from './components/MonthlySummary';
 import DateSummary from './components/DateSummary';
 import Chart from './components/Chart'
 import logo from './Assets/LOGO6.png'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 function App() {
   const [weeklyExpense, setWeeklyExpense] = useState(0);
   const [dailyExpense, setDailyExpense] = useState(0);
-  const [transactions,setTransactions] =  useState([
-    {emoji:"📋",title:"Health Insurance",expense:"23",category:"Insurance",date:"2023-06-16",id:5},
-    {emoji:"🏠",title:"Groceries",expense:"33",category:"Housing",date:"2023-06-16",id:7},
-    {emoji:"🚗",title:"Going to Native",expense:"22",category:"Transportation",date:"2023-06-10",id:1},
-    {emoji:"🐶",title:"Feeding Tommy",expense:"43",category:"Pets",date:"2023-06-10",id:3},
-    {emoji:"🏥",title:"Medicines",expense:"34",category:"Health Care",date:"2023-06-08",id:4},
-    {emoji:"🎬",title:"Watched Movie",expense:"34",category:"Entertainment",date:"2023-06-02",id:6},
-    {emoji:"🍔",title:"Had Lunch",expense:"32",category:"Fooding",date:"2023-06-01",id:2}
-  ]);
+  const [transactions,setTransactions] =  useState();
   const [activeTab,setActiveTab] = useState('home');
   const [reportTab,setReportTab] = useState('monthly'); 
+
+  useEffect(() => {
+    fetch('http://localhost:1337/api/transactions')
+      .then((res => res.json()))
+      // .then((data)=>console.log(data.data))
+      .then((data)=>setTransactions(data.data))
+
+      transactions && console.log(transactions)
+  },[])
+  
 
   //Function to handle tab
   const handleTabClick = (tab) => {
@@ -49,7 +51,7 @@ function App() {
           Charts
         </button>
       </div>
-      {activeTab === 'home' && (
+      {activeTab === 'home' && transactions && (
         <>
           <WeeklySummary weeklyExpense ={weeklyExpense} setWeeklyExpense={setWeeklyExpense} transactions={transactions}/>
           <DailySummary setDailyExpense ={setDailyExpense} dailyExpense={dailyExpense} transactions ={transactions}/>

@@ -9,7 +9,7 @@ function Balance({weeklyExpense, setWeeklyExpense, transactions}){
     
     // Filter transactions for the current week
     const filteredTransactions = transactions.filter(transaction => {
-        const transactionDate = new Date(transaction.date);
+        const transactionDate = new Date(transaction.attributes.date);
         return (
           transactionDate >= firstDayOfWeek &&
           transactionDate <= lastDayOfWeek
@@ -19,7 +19,7 @@ function Balance({weeklyExpense, setWeeklyExpense, transactions}){
     useEffect(() => { 
 
         // Calculate weekly expense by summing up the filtered transactions
-        const weeklyExpense = filteredTransactions.reduce((amount,filteredTransaction) =>  amount = amount + parseFloat(filteredTransaction.expense) , 0 )
+        const weeklyExpense = filteredTransactions.reduce((amount,filteredTransaction) =>  amount = amount + parseFloat(filteredTransaction.attributes.expense) , 0 )
         setWeeklyExpense(weeklyExpense);    
     })
 
