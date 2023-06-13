@@ -18,11 +18,18 @@ function App() {
   const [reportTab,setReportTab] = useState('monthly'); 
 
   useEffect(() => {
-    fetch('http://localhost:1337/api/transactions')
+    const fetchData = async() =>{
+      try {
+        fetch('http://localhost:1337/api/transactions')
       .then((res => res.json()))
       // .then((data)=>console.log(data.data))
       .then((data)=>setTransactions(data.data))
-
+      } catch (error) {
+        console.log(error.message)
+      }
+    }
+    
+    fetchData()
       transactions && console.log(transactions)
   },[])
   

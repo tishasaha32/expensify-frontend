@@ -61,10 +61,22 @@ function AddTransaction({transactions,setTransactions}) {
     }
 
     //Setting the objects in the Transactions array
-    transaction.id= transactions.length + 1;
-    setTransactions([...transactions,transaction  ]);
+    setTransactions([...transactions,{attributes: transaction}  ]);
+    try {
+      fetch("http://localhost:1337/api/transactions",{
+      method: 'POST',
+      body: JSON.stringify({
+        data: transaction,
+      }),
+      headers:{
+        "Content-type": "application/json; charset=UTF-8"
+      }
+    })  
+    } catch (error) {
+      console.log(error)
+    }
     console.log(transaction);
-    setTransaction({emoji:'',title:'', expense:null,category:'',date:null});
+    setTransaction({emoji:'',title:'', expense:null,category:'',date:new Date().toISOString().split('T')[0],});
     setIsModalOpen(false);
   }
   return (
