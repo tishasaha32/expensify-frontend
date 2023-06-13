@@ -4,11 +4,10 @@ import NoData from '../Common/NoData';
 import ItemsList from '../Common/ItemsList';
 import Summary from '../Common/Summary';
 
-function DateSummary({transactions}) {
+function DateSummary({transactions,activeTab}) {
     const [selectedDate,setSelectedDate] = useState('');
     const [isElementsVisible, setIsElementsVisible] = useState(false);
     const [totalExpense,setTotalExpense] = useState(0)
-    const todayDate= new Date().toISOString().split('T')[0];
 
     //Funtion to format date
     const formatDate = (selectedDate) => {
@@ -42,7 +41,7 @@ function DateSummary({transactions}) {
         <div className={styles.dateContainer}>
             <input 
                 type='date'
-                value={selectedDate || todayDate}
+                value={selectedDate}
                 placeholder='dd-mm-yyyy' 
                 required
                 onChange={(e)=>handleExpenseByDate(e)}
@@ -66,7 +65,7 @@ function DateSummary({transactions}) {
          {/* Map through the filtered transactions (category wise) */}
          {isElementsVisible && filteredTransaction.length!==0 && (
         <>
-            <ItemsList transactions={filteredTransaction}/>
+            <ItemsList transactions={filteredTransaction} activeTab={activeTab}/>
         </>
         )}
     </div> 

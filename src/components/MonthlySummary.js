@@ -4,7 +4,7 @@ import ItemsList from '../Common/ItemsList';
 import NoData from '../Common/NoData';
 import Summary from '../Common/Summary';
 
-function MonthlySummary({transactions}) {
+function MonthlySummary({transactions, activeTab}) {
   const [selectedMonth,setSelectedMonth] = useState('');
   const [isElementsVisible, setIsElementsVisible] = useState(false);
   const [monthlyExpense, setMonthlyExpense] = useState(0);
@@ -70,7 +70,7 @@ function MonthlySummary({transactions}) {
 
         {/* Map through the filtered transactions (month wise) */}
         {isElementsVisible && filteredTransaction.length!==0 &&(
-          <ItemsList transactions={filteredTransaction}/>
+          <ItemsList transactions={filteredTransaction} activeTab={activeTab}/>
         )}
     </div>
   )

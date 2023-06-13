@@ -1,11 +1,10 @@
 .dateContainer{
-    margin-top: 40px;
+    margin-top: 30px;
 }
 .dateContainer input{
     width: 80vw;
     height: 50px;
-    margin: 28px;
-    margin-top: 0px;
+    margin: 0px 30px;
 }
 
 @media only screen and (min-width: 600px){

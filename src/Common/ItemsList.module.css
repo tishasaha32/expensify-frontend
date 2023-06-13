@@ -1,9 +1,10 @@
-.itemsContainer{
+.itemsList{
     display: grid;
     width: 100vw;
     justify-content: flex-end;
     grid-template-columns: 1fr;
-    height: 45vh;
+}
+.itemsContainer{
     overflow-y: scroll!important;
 }
 .transaction{

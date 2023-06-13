@@ -8,6 +8,9 @@
     padding: 10px 10px;
     margin: 0px 10px;
 }
+.monthlySummaryComponent{
+    margin-bottom: 20vh;
+}
 
 @media only screen and (min-width: 600px){
     .monthFieldContainer select{

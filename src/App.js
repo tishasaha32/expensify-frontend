@@ -56,6 +56,7 @@ function App() {
         </button>
         <button className={activeTab === 'charts' ? 'active' : ''} onClick={() => handleTabClick('charts')}>
           Charts
+          
         </button>
       </div>
       {activeTab === 'home' && transactions && (
@@ -82,13 +83,13 @@ function App() {
         </div>
         <div>
         {reportTab==='monthly' &&(
-          <MonthlySummary transactions={transactions}/>
+          <MonthlySummary transactions={transactions} activeTab={activeTab}/>
         )}
         {reportTab==='category' &&(
-          <CategorySummary transactions={transactions}/>
+          <CategorySummary transactions={transactions} activeTab={activeTab}/>
         )}
         {reportTab==='date' &&(
-          <DateSummary transactions={transactions}/>
+          <DateSummary transactions={transactions} activeTab={activeTab}/>
         )}
         </div>
         </>

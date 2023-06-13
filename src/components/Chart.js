@@ -7,8 +7,23 @@ function Chart({ transactions }) {
   const [transactionChart, setTransactionChart] = useState(null);
 
   useEffect(() => {
-    const transactionCategories = transactions.map((transaction) => transaction.category);
-    const transactionExpenses = transactions.map((transaction) => transaction.expense);
+    const aggregatedData = transactions.reduce((result, transaction) => {
+      const { category, expense } = transaction.attributes;
+  
+      // Check if the category already exists in the result object
+      if (!result[category]) {
+        // If not, initialize the category with the expense value
+        result[category] = expense;
+      } else {
+        // If the category already exists, add the expense to the existing value
+        result[category] += expense;
+      }
+  
+      return result;
+    }, {});
+
+    const transactionCategories = Object.keys(aggregatedData);
+    const transactionExpenses = Object.values(aggregatedData);
 
     const chartData = {
       labels: transactionCategories,

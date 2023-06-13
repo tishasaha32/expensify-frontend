@@ -3,7 +3,7 @@ import bin from '../Assets/bin.png'
 import styles from './ItemsList.module.css'
 
 
-function ItemsList({transactions , setTransactions}) {
+function ItemsList({transactions , setTransactions, activeTab}) {
     // Function to format the date
     function formatDate(date) {
         const enteredDate = new Date(date);
@@ -13,14 +13,18 @@ function ItemsList({transactions , setTransactions}) {
 
     //Funtion to Delete a Transaction
     const handleDeleteButton=(id)=>{
+        const deletePost = async() =>{
+            fetch(`http://localhost:1337/api/transactions/${id}`, {method: 'DELETE'}
+        )}
+        deletePost();
         const filteredTransactions = transactions.filter(transaction=>transaction.id!=id);
         setTransactions(filteredTransactions)
     }
   return (
-    (<div>
+    (<div className={styles.itemsList}>
         {/*  Map through the transactions and render each transaction item */}
-        <div className={styles.itemsContainer}>
-        {transactions?.sort((a, b) => new Date(b.date) - new Date(a.date)).map(transaction => (
+        <div className={styles.itemsContainer} style={{height: activeTab == "report" ? '38vh' : '48vh'}}>
+        {transactions?.sort((a, b) => new Date(b.attributes.date) - new Date(a.attributes.date)).map(transaction => (
         <div className={styles.transaction}>
             <p className={styles.emoji}>{transaction?.attributes?.emoji}</p>
             <div className={styles.items}>

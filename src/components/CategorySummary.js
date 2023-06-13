@@ -4,7 +4,7 @@ import ItemsList from '../Common/ItemsList';
 import NoData from '../Common/NoData';
 import Summary from '../Common/Summary';
 
-function CategorySummary({transactions}) {
+function CategorySummary({transactions,activeTab}) {
     const [isElementsVisible, setIsElementsVisible] = useState(false);
     const [selectedCategory, setSelectedCategory] = useState('');
     const [totalExpenseCategoryWise, setTotalExpenseCategoryWise] = useState(0);
@@ -60,7 +60,7 @@ function CategorySummary({transactions}) {
         {/* Map through the filtered transactions (category wise) */}
         {isElementsVisible && filteredTransaction.length!==0 && (
             <>
-                <ItemsList transactions={filteredTransaction}/>
+                <ItemsList transactions={filteredTransaction} activeTab={activeTab}/>
             </>
         )}
     </div>
