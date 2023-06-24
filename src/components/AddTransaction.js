@@ -60,7 +60,7 @@ function AddTransaction({transactions,setTransactions}) {
         transaction.emoji = '💰';
     }
 
-    //Setting the objects in the Transactions array
+    //Setting the objects in the Transactions array and storing it in the dataBase
     setTransactions([...transactions,{attributes: transaction}  ]);
     try {
       fetch("http://localhost:1337/api/transactions",{
